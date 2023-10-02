@@ -1,0 +1,84 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background-color: #333;
+    color: white;
+    box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.1);
+}
+.navbar-brand {
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.navbar-items {
+    display: flex;
+    gap: 15px;
+}
+.navbar-items a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+.navbar-items a:hover {
+    color: #333;
+    background-color: white;
+    border-radius: 5px;
+}
+.burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+.burger span {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    transition: transform 0.3s ease-in-out;
+}
+@media (max-width: 768px) {
+    .navbar-items {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        display: none;
+        padding: 20px 0;
+        box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.1);
+        border-radius: 0 0 5px 5px;
+    }
+
+    .navbar-items.show {
+        display: flex;
+        animation: slideIn 0.3s ease-in-out forwards;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    .burger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    .burger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .burger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+}
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
